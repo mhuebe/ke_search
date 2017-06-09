@@ -36,8 +36,15 @@ class user_filterlist
     {
         $parentRow = $config['flexParentDatabaseRow'];
 
-        // get id from string
-        if (strstr($parentRow['pages'], 'pages_')) {
+        if (is_array($parentRow['pages'])) {
+            $intArray = array();
+            foreach ($parentRow['pages'] as $page) {
+                $intArray[] = $page['uid'];
+            }
+            $intString = implode(',', $intArray);
+
+            // get id from string
+        } elseif (strstr($parentRow['pages'], 'pages_')) {
             $intString = str_replace('pages_', '', $parentRow['pages']);
             $intString = substr($intString, 0, strpos($intString, '|'));
             $intString = intval($intString);
@@ -132,8 +139,15 @@ class user_filterlist
     {
         $parentRow = $config['flexParentDatabaseRow'];
 
-        // get id from string
-        if (strstr($parentRow['pages'], 'pages_')) {
+        if (is_array($parentRow['pages'])) {
+            $intArray = array();
+            foreach ($parentRow['pages'] as $page) {
+                $intArray[] = $page['uid'];
+            }
+            $intString = implode(',', $intArray);
+
+            // get id from string
+        } elseif (strstr($parentRow['pages'], 'pages_')) {
             $intString = str_replace('pages_', '', $parentRow['pages']);
             $intString = substr($intString, 0, strpos($intString, '|'));
             $intString = intval($intString);
