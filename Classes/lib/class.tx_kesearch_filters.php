@@ -109,7 +109,7 @@ class tx_kesearch_filters
                 $selected = true;
             } else {
                 if (is_array($this->pObj->piVars['filter'][$filter['uid']])) {
-                    $isInArray = TYPO3\CMS\Core\Utility\GeneralUtility::inArray(
+                    $isInArray = TYPO3\CMS\Core\Utility\ArrayUtility::inArray(
                         $this->pObj->piVars['filter'][$filter['uid']],
                         $option['tag']
                     );
